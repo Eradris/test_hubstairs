@@ -18,7 +18,7 @@ class App extends Component {
         <Router>
           <Grid>
             <Grid.Row centered>
-              <MainMenu />
+              <MainMenu/>
             </Grid.Row>
             <Grid.Row centered>
               <Route exact path="/" component={Home} />

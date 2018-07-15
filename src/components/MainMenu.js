@@ -6,7 +6,7 @@ class MainMenu extends Component {
   constructor(props){
     super(props)
     this.state = {
-      activeItem: 'home'
+      activeItem: window.location.pathname
     }
     this.handleItemClick = this.handleItemClick.bind(this)
   }
@@ -19,38 +19,39 @@ class MainMenu extends Component {
     const { activeItem } = this.state
     return (
       <Menu secondary>
-        <Link to="/">
-          <Menu.Item 
-            active={activeItem === 'home'}
-            onClick={(name) => this.handleItemClick('home')}
-          >
-            Home
-          </Menu.Item>
-        </Link>
-        <Link to="/music">
-          <Menu.Item 
-            active={activeItem === 'music'}
-            onClick={(name) => this.handleItemClick('music')}
-          >
-            Music
-          </Menu.Item>
-        </Link>
-        <Link to="/prime">
-          <Menu.Item 
-            active={activeItem === 'prime'}
-            onClick={(name) => this.handleItemClick('prime')}
-          >
-            Prime
-          </Menu.Item>
-        </Link>
-        <Link to="/graph">
-          <Menu.Item 
-            active={activeItem === 'graph'}
-            onClick={(name) => this.handleItemClick('graph')}
-          >
-            Graph
-          </Menu.Item>
-        </Link>
+        <Menu.Item
+          as={Link}
+          to="/"
+          active={activeItem === '/home'}
+          onClick={(name) => this.handleItemClick('/home')}
+        >
+          Home
+        </Menu.Item>
+        <Menu.Item 
+          as={Link}
+          to="/music"
+          active={activeItem === '/music'}
+          onClick={(name) => this.handleItemClick('/music')}
+        >
+          Music
+        </Menu.Item>
+        <Menu.Item 
+          as={Link}
+          to="/prime"
+          active={activeItem === '/prime'}
+          onClick={(name) => this.handleItemClick('/prime')}
+        >
+          Prime
+        </Menu.Item>
+      
+        <Menu.Item 
+          as={Link} 
+          to="/graph"
+          active={activeItem === '/graph'}
+          onClick={(name) => this.handleItemClick('/graph')}
+        >
+          Graph
+        </Menu.Item>
       </Menu>
     );
   }
